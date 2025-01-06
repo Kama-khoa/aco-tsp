@@ -9,12 +9,12 @@ class SolveTSPUsingACO:
             self.a = a
             self.b = b
             self.weight = weight
-            self.pheromone = initial_pheromone
+            self.pheromone = initial_pheromone #lượng pheromone ban đầu
 
     class Ant:
         def __init__(self, alpha, beta, num_nodes, edges):
-            self.alpha = alpha
-            self.beta = beta
+            self.alpha = alpha #Hệ số điêu chỉnh của pheromone
+            self.beta = beta #Hệ số điều chỉnh của heuristic
             self.num_nodes = num_nodes
             self.edges = edges
             self.tour = None
@@ -160,9 +160,9 @@ class SolveTSPUsingACO:
 
 
 if __name__ == '__main__':
-    _colony_size = 5
+    _colony_size = 100
     _steps = 50
-    _nodes = [(random.uniform(-400, 400), random.uniform(-400, 400)) for _ in range(0, 15)]
+    _nodes = [(random.uniform(-400, 400), random.uniform(-400, 400)) for _ in range(0, 100)]
     acs = SolveTSPUsingACO(mode='ACS', colony_size=_colony_size, steps=_steps, nodes=_nodes)
     acs.run()
     acs.plot()
